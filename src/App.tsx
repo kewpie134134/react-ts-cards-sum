@@ -7,6 +7,7 @@ const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
   const [arrayCounter, setArrayCounter] = useState(ZERO);
   const [arrayIndex, setArrayIndex] = useState<string>(HYPHEN);
+  const [sumTrumpCardNumber, setSumTrumpCardNumber] = useState<number>(ZERO);
 
   // ランダムな配列を、初回読み込み時に作成
   useEffect(() => {
@@ -37,6 +38,7 @@ const App = (): JSX.Element => {
       <button onClick={resetArrayCounter}>リセット</button>
       <p>arrayNumber: {arrayIndex}</p>
       <p>arrayCounter: {arrayCounter}</p>
+      <p>sumTrumpCardNumber: {sumTrumpCardNumber}</p>
     </div>
   );
 };
