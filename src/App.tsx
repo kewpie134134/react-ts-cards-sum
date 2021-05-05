@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { makeArray, shuffleArray } from './components/MakeArray';
+import { shuffleArray } from './components/MakeArray';
 import { ZERO, ONE, NUMBER_OF_TRUMP, HYPHEN } from './utils/Constant';
+import { ARRAY_OF_TRUMP } from './utils/Trump';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
   const [arrayCounter, setArrayCounter] = useState(ZERO);
   const [arrayIndex, setArrayIndex] = useState<string>(HYPHEN);
 
-  // ランダムな配列を初回読み込み時に作成
+  // ランダムな配列を、初回読み込み時に作成
   useEffect(() => {
-    setRandomArray(shuffleArray(makeArray(NUMBER_OF_TRUMP)));
+    // トランプ 52 枚のランダムな配列を作成
+    setRandomArray(shuffleArray(ARRAY_OF_TRUMP));
   }, []);
 
   // ボタンを押された時の処理を実装
@@ -26,7 +28,7 @@ const App = (): JSX.Element => {
   const resetArrayCounter = () => {
     setArrayCounter(ZERO);
     setArrayIndex(HYPHEN);
-    setRandomArray(shuffleArray(makeArray(NUMBER_OF_TRUMP)));
+    setRandomArray(shuffleArray(ARRAY_OF_TRUMP));
   };
 
   return (
