@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const App = (): JSX.Element => {
   const [arrayCounter, setArrayCounter] = useState(0);
   const [arrayNumber, setArrayNumber] = useState<number>();
+  const [randomArray, setRandomArray] = useState<number[]>([]);
 
   // 1 から index の数までの配列を作成
   const makeArray = (index: number): number[] => {
@@ -22,11 +23,12 @@ const App = (): JSX.Element => {
     return array;
   };
 
-  // 配列作成
-  const randomArray = shuffle(makeArray(52));
+  const makeRandomArray = useEffect(() => {
+    setRandomArray(shuffle(makeArray(52)));
+  }, []);
 
   // ボタンを押された時の処理を実装
-  const showArrayNumber = () => {
+  const showArrayNumber = useCallback(() => {
     if (arrayCounter < 52) {
       setArrayNumber(randomArray[arrayCounter]);
       setArrayCounter(arrayCounter + 1);
@@ -35,12 +37,14 @@ const App = (): JSX.Element => {
     } else {
       alert('終わりだよ！');
     }
-  };
+  }, [arrayCounter]);
 
   // リセットボタンが押された時の処理を実装
   const resetArrayCounter = () => {
     setArrayCounter(0);
+    makeRandomArray;
     console.log(randomArray);
+    console.log(arrayCounter);
   };
 
   return (
