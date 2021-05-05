@@ -45,7 +45,7 @@ const App = (): JSX.Element => {
       <button onClick={showArrayNumber}>押して！</button>
       <button onClick={resetArrayCounter}>リセット</button>
       <div>
-        <TrumpImage />
+        <TrumpImage cardNumber={arrayIndex} />
       </div>
     </>
   );
