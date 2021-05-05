@@ -44,6 +44,7 @@ const App = (): JSX.Element => {
   // リセットボタンが押された時の処理を実装
   const resetArrayCounter = () => {
     setArrayCounter(0);
+    setRandomArray(shuffle(makeArray(52)));
     console.log(randomArray);
     console.log(arrayCounter);
   };
