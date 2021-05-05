@@ -23,12 +23,14 @@ const App = (): JSX.Element => {
     return array;
   };
 
-  const makeRandomArray = useEffect(() => {
+  useEffect(() => {
     setRandomArray(shuffle(makeArray(52)));
+    console.log(randomArray);
+    console.log(arrayNumber);
   }, []);
 
   // ボタンを押された時の処理を実装
-  const showArrayNumber = useCallback(() => {
+  const showArrayNumber = () => {
     if (arrayCounter < 52) {
       setArrayNumber(randomArray[arrayCounter]);
       setArrayCounter(arrayCounter + 1);
@@ -37,12 +39,11 @@ const App = (): JSX.Element => {
     } else {
       alert('終わりだよ！');
     }
-  }, [arrayCounter]);
+  };
 
   // リセットボタンが押された時の処理を実装
   const resetArrayCounter = () => {
     setArrayCounter(0);
-    makeRandomArray;
     console.log(randomArray);
     console.log(arrayCounter);
   };
@@ -51,7 +52,9 @@ const App = (): JSX.Element => {
     <div>
       <button onClick={showArrayNumber}>押して！</button>
       <button onClick={resetArrayCounter}>リセット</button>
-      <p>{arrayNumber}</p>
+      <p>arrayNumber: {arrayNumber}</p>
+      <p>arrayCounter: {arrayCounter}</p>
+      <p>randomArray: {randomArray}</p>
     </div>
   );
 };
