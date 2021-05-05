@@ -39,7 +39,6 @@ const App = (): JSX.Element => {
 
   return (
     <>
-      <p>arrayIndex: {arrayIndex}</p>
       <p>arrayCounter: {arrayCounter}</p>
       <p>sumTrumpCardNumber: {sumTrumpCardNumber}</p>
       <button onClick={showArrayNumber}>押して！</button>

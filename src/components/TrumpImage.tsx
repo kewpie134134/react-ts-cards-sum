@@ -5,13 +5,12 @@ type Props = {
 };
 
 const TrumpImage = (cardNumber: Props): JSX.Element => {
-  const card = cardNumber.cardNumber;
-  console.log(card);
+  const cardIndex = cardNumber.cardNumber;
 
   return (
     <div>
       <img
-        src={`${process.env.PUBLIC_URL}/images/card_${card}.png`}
+        src={`${process.env.PUBLIC_URL}/images/card_${cardIndex}.png`}
         alt="card"
       />
     </div>
