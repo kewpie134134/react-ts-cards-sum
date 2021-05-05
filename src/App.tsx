@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = (): JSX.Element => {
   const [arrayCounter, setArrayCounter] = useState(0);
@@ -25,8 +25,6 @@ const App = (): JSX.Element => {
 
   useEffect(() => {
     setRandomArray(shuffle(makeArray(52)));
-    console.log(randomArray);
-    console.log(arrayNumber);
   }, []);
 
   // ボタンを押された時の処理を実装
@@ -34,8 +32,6 @@ const App = (): JSX.Element => {
     if (arrayCounter < 52) {
       setArrayNumber(randomArray[arrayCounter]);
       setArrayCounter(arrayCounter + 1);
-      console.log(randomArray);
-      console.log(arrayCounter);
     } else {
       alert('終わりだよ！');
     }
@@ -45,8 +41,6 @@ const App = (): JSX.Element => {
   const resetArrayCounter = () => {
     setArrayCounter(0);
     setRandomArray(shuffle(makeArray(52)));
-    console.log(randomArray);
-    console.log(arrayCounter);
   };
 
   return (
@@ -55,7 +49,6 @@ const App = (): JSX.Element => {
       <button onClick={resetArrayCounter}>リセット</button>
       <p>arrayNumber: {arrayNumber}</p>
       <p>arrayCounter: {arrayCounter}</p>
-      <p>randomArray: {randomArray}</p>
     </div>
   );
 };
