@@ -1,8 +1,8 @@
 import React from 'react';
-import Logo from '../images/logo.svg';
+import Spade_01 from '../images/spade/card_spade_01.png';
 
-const IconComponent = (): JSX.Element => {
-  return <img src={Logo} alt="logo" />;
+const TrumpImage = (): JSX.Element => {
+  return <img src={Spade_01} alt="card" />;
 };
 
-export default IconComponent;
+export default TrumpImage;
