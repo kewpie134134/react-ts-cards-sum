@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { shuffleArray } from './components/MakeArray';
 import { ZERO, ONE, NUMBER_OF_TRUMP, HYPHEN } from './utils/Constant';
 import { ARRAY_OF_TRUMP, OBJECT_OF_TRUMP } from './utils/Trump';
-import IconComponent from './components/IconComponent';
+import IconComponent from './components/TrumpImage';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
