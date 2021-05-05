@@ -1,30 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { makeArray, shuffleArray } from './components/MakeArray';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
   const [arrayCounter, setArrayCounter] = useState(0);
   const [arrayIndex, setArrayIndex] = useState<string>('-');
 
-  // 1 から index の数までの配列を作成
-  const makeArray = (index: number): string[] => {
-    const array: string[] = [];
-    for (let i = 1; i < index + 1; i++) {
-      array.push(i.toString());
-    }
-    return array;
-  };
-
-  // 配列をシャッフルする関数
-  const shuffle = ([...array]: string[]): string[] => {
-    for (let i = array.length - 1; i >= 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  };
-
+  // ランダムな配列を初回読み込み時に作成
   useEffect(() => {
-    setRandomArray(shuffle(makeArray(52)));
+    setRandomArray(shuffleArray(makeArray(52)));
   }, []);
 
   // ボタンを押された時の処理を実装
@@ -41,7 +25,7 @@ const App = (): JSX.Element => {
   const resetArrayCounter = () => {
     setArrayCounter(0);
     setArrayIndex('-');
-    setRandomArray(shuffle(makeArray(52)));
+    setRandomArray(shuffleArray(makeArray(52)));
   };
 
   return (
