@@ -40,7 +40,7 @@ const App = (): JSX.Element => {
     <div>
       <button onClick={showArrayNumber}>押して！</button>
       <button onClick={resetArrayCounter}>リセット</button>
-      <p>arrayNumber: {arrayIndex}</p>
+      <p>arrayIndex: {arrayIndex}</p>
       <p>arrayCounter: {arrayCounter}</p>
       <p>sumTrumpCardNumber: {sumTrumpCardNumber}</p>
     </div>

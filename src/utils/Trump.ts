@@ -62,15 +62,16 @@ const OBJECT_OF_DIAMOND = {
   'D-13': 13,
 };
 
+// トランプマークの配列
 export const ARRAY_OF_TRUMP = Object.keys(OBJECT_OF_SPADE)
   .concat(Object.keys(OBJECT_OF_HEART))
   .concat(Object.keys(OBJECT_OF_CLOVER))
   .concat(Object.keys(OBJECT_OF_DIAMOND));
 
+// トランプマークと値のオブジェクト
 export const OBJECT_OF_TRUMP: { [key: string]: number } = {
   ...OBJECT_OF_SPADE,
   ...OBJECT_OF_HEART,
   ...OBJECT_OF_CLOVER,
   ...OBJECT_OF_DIAMOND,
-  '-': 0,
 };
