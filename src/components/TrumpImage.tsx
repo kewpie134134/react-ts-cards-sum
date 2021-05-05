@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Spade_01 from '../images/spade/card_spade_01.png';
-import Spade_02 from '../images/spade/card_spade_02.png';
-import { HYPHEN } from '../utils/Constant';
+import React from 'react';
 
 type Props = {
   cardNumber: string;
@@ -9,11 +6,14 @@ type Props = {
 
 const TrumpImage = (cardNumber: Props): JSX.Element => {
   const card = cardNumber.cardNumber;
+  console.log(card);
 
   return (
     <div>
-      <img src={'Spade_01'} alt="card" />
-      <p>card: {card}</p>
+      <img
+        src={`${process.env.PUBLIC_URL}/images/card_${card}.png`}
+        alt="card"
+      />
     </div>
   );
 };
