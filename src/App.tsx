@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { shuffleArray } from './components/MakeArray';
 import { ZERO, ONE, NUMBER_OF_TRUMP, HYPHEN } from './utils/Constant';
-import { ARRAY_OF_TRUMP } from './utils/Trump';
+import { ARRAY_OF_TRUMP, OBJECT_OF_TRUMP } from './utils/Trump';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
@@ -20,6 +20,9 @@ const App = (): JSX.Element => {
     if (arrayCounter < NUMBER_OF_TRUMP) {
       setArrayIndex(randomArray[arrayCounter]);
       setArrayCounter(arrayCounter + ONE);
+      setSumTrumpCardNumber(
+        sumTrumpCardNumber + OBJECT_OF_TRUMP[randomArray[arrayCounter]]
+      );
     } else {
       alert('終わりだよ！');
     }
@@ -29,6 +32,7 @@ const App = (): JSX.Element => {
   const resetArrayCounter = () => {
     setArrayCounter(ZERO);
     setArrayIndex(HYPHEN);
+    setSumTrumpCardNumber(ZERO);
     setRandomArray(shuffleArray(ARRAY_OF_TRUMP));
   };
 
