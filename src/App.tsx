@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { shuffleArray } from './components/MakeArray';
 import { ZERO, ONE, NUMBER_OF_TRUMP, HYPHEN } from './utils/Constant';
 import { ARRAY_OF_TRUMP, OBJECT_OF_TRUMP } from './utils/Trump';
+import IconComponent from './components/IconComponent';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
@@ -38,11 +39,12 @@ const App = (): JSX.Element => {
 
   return (
     <div>
-      <button onClick={showArrayNumber}>押して！</button>
-      <button onClick={resetArrayCounter}>リセット</button>
       <p>arrayIndex: {arrayIndex}</p>
       <p>arrayCounter: {arrayCounter}</p>
       <p>sumTrumpCardNumber: {sumTrumpCardNumber}</p>
+      <button onClick={showArrayNumber}>押して！</button>
+      <button onClick={resetArrayCounter}>リセット</button>
+      <IconComponent />
     </div>
   );
 };
