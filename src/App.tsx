@@ -1,9 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const App = (): JSX.Element => {
+  const [arrayCounter, setArrayCounter] = useState(0);
+  const [arrayNumber, setArrayNumber] = useState<number>();
+
+  // 1 から index の数までの配列を作成
+  const makeArray = (index: number): number[] => {
+    const array: number[] = [];
+    for (let i = 1; i < index + 1; i++) {
+      array.push(i);
+    }
+    return array;
+  };
+
+  // 配列をシャッフルする関数
+  const shuffle = ([...array]: number[]): number[] => {
+    for (let i = array.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  // 配列作成
+  const randomArray = shuffle(makeArray(52));
+
+  // ボタンを押された時の処理を実装
+  const showArrayNumber = () => {
+    if (arrayCounter < 52) {
+      setArrayNumber(randomArray[arrayCounter]);
+      setArrayCounter(arrayCounter + 1);
+      console.log(randomArray);
+      console.log(arrayCounter);
+    } else {
+      alert('終わりだよ！');
+    }
+  };
+
+  // リセットボタンが押された時の処理を実装
+  const resetArrayCounter = () => {
+    setArrayCounter(0);
+    console.log(randomArray);
+  };
+
   return (
     <div>
-      <p>Hello, world!</p>
+      <button onClick={showArrayNumber}>押して！</button>
+      <button onClick={resetArrayCounter}>リセット</button>
+      <p>{arrayNumber}</p>
     </div>
   );
 };
