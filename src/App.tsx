@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { makeArray, shuffleArray } from './components/MakeArray';
+import { ZERO, ONE, NUMBER_OF_TRUMP, HYPHEN } from './utils/Constant';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
-  const [arrayCounter, setArrayCounter] = useState(0);
-  const [arrayIndex, setArrayIndex] = useState<string>('-');
+  const [arrayCounter, setArrayCounter] = useState(ZERO);
+  const [arrayIndex, setArrayIndex] = useState<string>(HYPHEN);
 
   // ランダムな配列を初回読み込み時に作成
   useEffect(() => {
-    setRandomArray(shuffleArray(makeArray(52)));
+    setRandomArray(shuffleArray(makeArray(NUMBER_OF_TRUMP)));
   }, []);
 
   // ボタンを押された時の処理を実装
   const showArrayNumber = () => {
-    if (arrayCounter < 52) {
+    if (arrayCounter < NUMBER_OF_TRUMP) {
       setArrayIndex(randomArray[arrayCounter]);
-      setArrayCounter(arrayCounter + 1);
+      setArrayCounter(arrayCounter + ONE);
     } else {
       alert('終わりだよ！');
     }
@@ -23,9 +24,9 @@ const App = (): JSX.Element => {
 
   // リセットボタンが押された時の処理を実装
   const resetArrayCounter = () => {
-    setArrayCounter(0);
-    setArrayIndex('-');
-    setRandomArray(shuffleArray(makeArray(52)));
+    setArrayCounter(ZERO);
+    setArrayIndex(HYPHEN);
+    setRandomArray(shuffleArray(makeArray(NUMBER_OF_TRUMP)));
   };
 
   return (
