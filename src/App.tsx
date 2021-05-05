@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const App = (): JSX.Element => {
+  const [randomArray, setRandomArray] = useState<number[]>([]);
   const [arrayCounter, setArrayCounter] = useState(0);
   const [arrayNumber, setArrayNumber] = useState<number>();
-  const [randomArray, setRandomArray] = useState<number[]>([]);
 
   // 1 から index の数までの配列を作成
   const makeArray = (index: number): number[] => {
