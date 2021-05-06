@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { shuffleArray } from './components/MakeArray';
+
 import { ZERO, ONE, NUMBER_OF_TRUMP, HYPHEN } from './utils/Constant';
 import { ARRAY_OF_TRUMP, OBJECT_OF_TRUMP } from './utils/Trump';
+import { shuffleArray } from './components/MakeArray';
 import TrumpImage from './components/TrumpImage';
+import ShowFinishMessage from './components/ShowFinishMessage';
 
 const App = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
@@ -41,6 +43,7 @@ const App = (): JSX.Element => {
     <>
       <p>arrayCounter: {arrayCounter}</p>
       <p>sumTrumpCardNumber: {sumTrumpCardNumber}</p>
+      <ShowFinishMessage arrayCounter={arrayCounter} />
       <button onClick={showArrayNumber}>押して！</button>
       <button onClick={resetArrayCounter}>リセット</button>
       <div>
