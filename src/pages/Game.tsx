@@ -5,8 +5,6 @@ import { ARRAY_OF_TRUMP, OBJECT_OF_TRUMP } from '../utils/Trump';
 import { shuffleArray } from '../components/MakeArray';
 import TrumpImage from '../components/TrumpImage';
 import ShowFinishMessage from '../components/ShowFinishMessage';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 const Game = (): JSX.Element => {
   const [randomArray, setRandomArray] = useState<string[]>([]);
@@ -43,7 +41,6 @@ const Game = (): JSX.Element => {
 
   return (
     <>
-      <Header />
       <p>arrayCounter: {arrayCounter}</p>
       <p>sumTrumpCardNumber: {sumTrumpCardNumber}</p>
       <ShowFinishMessage arrayCounter={arrayCounter} />
@@ -52,7 +49,6 @@ const Game = (): JSX.Element => {
       <div>
         <TrumpImage cardNumber={arrayIndex} />
       </div>
-      <Footer />
     </>
   );
 };
