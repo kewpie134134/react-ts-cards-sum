@@ -9,10 +9,7 @@ const TrumpImage = (cardNumber: Props): JSX.Element => {
 
   return (
     <div>
-      <img
-        src={`${process.env.PUBLIC_URL}/images/card_${cardIndex}.png`}
-        alt="card"
-      />
+      <img src={`/images/card_${cardIndex}.png`} alt="card" />
     </div>
   );
 };
